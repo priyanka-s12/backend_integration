@@ -35,7 +35,9 @@ const AddMovieForm = () => {
         },
         body: JSON.stringify(formData),
       });
+      //creating object as its formData, sending formData object to server
 
+      //check if response is proper or not, such as status, boolean value ok, using boolean value ok
       if (!response.ok) {
         throw 'Failed to add movie';
       }
