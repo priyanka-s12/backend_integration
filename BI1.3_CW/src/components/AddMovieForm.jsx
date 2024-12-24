@@ -28,7 +28,7 @@ const AddMovieForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('https://txqzgx-3000.csb.app/movies', {
+      const response = await fetch('https://movies-bk-api.vercel.app/movies', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',

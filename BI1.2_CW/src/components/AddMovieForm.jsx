@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const AddMovieForm = () => {
+  const [successMessage, setSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     releaseYear: '',
@@ -28,7 +29,7 @@ const AddMovieForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('https://txqzgx-3000.csb.app/movies', {
+      const response = await fetch('https://movies-bk-api.vercel.app/movies', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -44,6 +45,23 @@ const AddMovieForm = () => {
 
       const data = await response.json();
       console.log('Added movie', data);
+      setSuccessMessage(true);
+
+      let emptyValues = {
+        title: '',
+        releaseYear: '',
+        genre: '',
+        director: '',
+        actors: '',
+        language: '',
+        country: '',
+        rating: '',
+        plot: '',
+        awards: '',
+        posterUrl: '',
+      };
+
+      setFormData(emptyValues);
     } catch (error) {
       console.log(error);
     }
@@ -174,6 +192,7 @@ const AddMovieForm = () => {
         <br />
         <input type="submit" />
       </form>
+      {successMessage && <p>Date added successfully...!!!</p>}
     </div>
   );
 };

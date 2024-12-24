@@ -2,7 +2,7 @@ import useFetch from '../useFetch';
 
 const Books = () => {
   const { data, loading, error } = useFetch(
-    'https://99c3yk-3000.csb.app/books'
+    'https://be-4-assignment1-chi.vercel.app/books'
   );
   console.log(data);
 

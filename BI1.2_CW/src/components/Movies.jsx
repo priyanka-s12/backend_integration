@@ -1,7 +1,7 @@
 import useFetch from '../useFetch';
 const Movies = () => {
   const { data, loading, error } = useFetch(
-    'https://txqzgx-3000.csb.app/movies'
+    'https://movies-bk-api.vercel.app/movies'
   );
   // console.log(data);
 

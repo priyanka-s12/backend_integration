@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const AddNewBook = () => {
+  const [successMessage, setSuccessMessage] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     author: '',
@@ -25,13 +26,16 @@ const AddNewBook = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('https://99c3yk-3000.csb.app/books', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        'https://be-4-assignment1-chi.vercel.app/books',
+        {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw 'Failed to add a book';
@@ -39,6 +43,21 @@ const AddNewBook = () => {
 
       const data = response.json();
       console.log('Added book', data);
+      setSuccessMessage(true);
+
+      let emptyValues = {
+        title: '',
+        author: '',
+        publishedYear: '',
+        genre: '',
+        language: '',
+        country: '',
+        rating: '',
+        summary: '',
+        coverImageUrl: '',
+      };
+
+      setFormData(emptyValues);
     } catch (error) {
       console.log(error);
     }
@@ -148,6 +167,7 @@ const AddNewBook = () => {
         <br />
         <input type="submit" value="Submit" />
       </form>
+      {successMessage && <p>Date added successfully...!!!</p>}
     </div>
   );
 };

@@ -4,14 +4,14 @@ import useFetch from '../useFetch';
 const Books = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const { data, loading, error } = useFetch(
-    'https://99c3yk-3000.csb.app/books'
+    'https://be-4-assignment1-chi.vercel.app/books'
   );
   //   console.log(data);
 
   const handleDelete = async (bookId) => {
     try {
       const response = await fetch(
-        `https://99c3yk-3000.csb.app/books/deletebook/${bookId}`,
+        `https://be-4-assignment1-chi.vercel.app/books/deletebook/${bookId}`,
         {
           method: 'DELETE',
         }
