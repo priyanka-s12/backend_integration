@@ -58,6 +58,7 @@ const AddNewBook = () => {
       };
 
       setFormData(emptyValues);
+      // setFormData(formData);
     } catch (error) {
       console.log(error);
     }
