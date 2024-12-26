@@ -62,6 +62,7 @@ const AddMovieForm = () => {
       };
 
       setFormData(emptyValues);
+      // setFormData(formData);
     } catch (error) {
       console.log(error);
     }
